@@ -24,6 +24,8 @@ func get_input():
 		input_dir += - camera.global_transform.basis.x
 	if Input.is_action_pressed("strafe_right"):
 		input_dir += camera.global_transform.basis.x
+	if Input.is_action_pressed("begin"):
+		get_tree().change_scene("res://Scenes/World.tscn")
 	if Input.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.is_action_pressed("ui_accept"):
@@ -35,11 +37,6 @@ func get_input():
 	input_dir = input_dir.normalized()
 	return input_dir
 
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		rotation_helper.rotate_x(-event.relative.y * mouse_sensitivity)
-		rotate_y(-event.relative.x * mouse_sensitivity)
-
 func add_coins():
 	coins = coins + 1;
 	return true;
@@ -50,10 +47,10 @@ func _physics_process(delta):
 	var kb3d = self.move_and_collide(velocity*delta)
 	if (kb3d):
 		var strid = str(kb3d.collider_id)
-		if (strid == "1212"):
+		if (strid == "1211"):
 			get_slide_collision(0).collider.queue_free();
 			coins = coins + 1;
-		elif (strid == "1215"):
+		elif (strid == "1214"):
 			get_tree().change_scene("res://Scenes/World2.tscn")
 		elif (strid == "1774"):
 			get_slide_collision(0).collider.queue_free();

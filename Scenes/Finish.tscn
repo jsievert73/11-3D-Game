@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1018.0
+margin_bottom = 600.0
+text = "Thanks for Playing!
+
+I hope you enjoyed it!
+
+I know it's very simple at this point, but if you like the concept, feel free
+ to download the source code and make your own improvements!"
+align = 1
+valign = 1
